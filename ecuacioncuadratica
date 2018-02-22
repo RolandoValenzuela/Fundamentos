@@ -1,0 +1,19 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main (){
+	float x,a,b,c;
+	cout<<"ingrese a:";
+	cin>>a;
+	cout<<"ingrese b:";
+	cin>>b;
+	cout<<"ingrese c:";
+	cin>>c;
+	x=(pow(b,2))-(4*a*c);
+	cout<<"el resultado es:"<<x;
+	getch();
+}
