@@ -1,0 +1,19 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main (){
+	float sb,diva,dafp,dtotal,sn;
+	cout<<"ingrese salario bruto:";
+	cin>>sb;
+	diva=sb*0.13;
+	dafp=sb*0.121;
+	dtotal=diva+dafp;
+	sn=sb-dtotal;
+	cout<<"el salario neto es:"<<sn;
+	getch();
+}
