@@ -1,0 +1,123 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>  // se necesita la clase string
+ using namespace std;
+ 
+ int longitud ( string nombre );
+ bool comparar ( string palabra, string palabra2);
+ int encontrar ( string cadena, string k);
+ string subcadena ( string nombre,int pos, int l);  // pos es la posicion, l numero de caracteres
+ bool palindromo ( string palabra );
+ 
+ void main()
+ {
+	 int pos, opcion;
+     int aux;
+	 string var1, var2, nombre;  // declarar strings
+	 do{
+		 cout<<"   menu    "<< endl;
+		 cout<<" 1. longitud "<< endl;
+		 cout<<" 2. comparar "<< endl;
+		 cout<<" 3. encontrar "<< endl;
+		 cout<<" 4. subcadena "<< endl;
+		 cout<<" 5. palindromo "<< endl;
+		 cout<<" 0. salir "<< endl;
+		 cout<<" opcion: ";
+		 cin>> opcion;
+		 switch(opcion){
+	     case 1: cout<<" ingresar la cadena ";
+                 cin.ignore();    
+			     getline (cin, var1);  // es igual que cin
+				 aux= longitud(var1);
+				 cout<<" la cadena"<< var1 << "es: "<<  aux;
+				 break;
+
+		 case 2: cin.ignore();
+			     cout<<" ingresar la cadena ";
+                 getline (cin, var2);  // es igual que cin
+				 if (comparar(var1,var2))
+					 cout<<"son iguales";
+				 else
+					 cout<<"son diferentes";
+                 break;
+
+		 case 3: cout<<" ingresar la cadena principal";
+                 cin.ignore();    
+			     getline (cin, var1);  // es igual que cin
+				 cout<<" ingresar la cadena a buscar ";
+				 getline (cin, var2);  // es igual que cin
+				 pos=encontrar(var1, var2);
+				 if (pos==-1)
+					 cout<<" no esta la cadena dentro de la otra";
+				 else
+					 cout<<" empieza enla posicion"<< pos;
+				 break;
+
+		 case 4: cout<<" ingresa la cadena principal";
+			     cin.ignore();    
+			     getline(cin, var1);  // es igual que cin
+				 cout<<" ingresar la posicion a devolver";
+				 cin>> pos; 
+				 nombre=subcadena(var1, pos,1);
+				 cout<<" la  subcadena en la posicion"<< pos<< " es "<< nombre;
+				 break;
+
+		 case 5: cout<<" ingresar la cadena orincipal";
+                 getline (cin, var1);  // es igual que cin
+				 if (palindromo(var1))
+					 cout<<" es un palindromo";
+				 else
+					 cout<<" no es";
+				 break;
+
+		 case 0: cout<<" salir";
+			     break;
+
+		 default: cout<<" error ";
+			     break;
+		 }
+		 cout<<endl;
+	 }while(opcion!=0);
+	  getch();
+ }
+
+
+ int longitud ( string nombre){
+	 int aux1;
+	 aux1=nombre.length();
+	 return aux1;
+ }
+
+ bool comparar ( string palabra, string palabra2){
+	 bool aux;
+	 if ( palabra.compare(palabra2)==0)
+		 aux=true;
+	 else 
+		 aux=false;
+	 return aux;
+ }
+
+ int encontrar ( string cadena , string k){
+	 int aux;
+	 aux=cadena.find(k);
+
+	 return aux;
+ }
+
+ string subcadena ( string nombre, int pos, int l){ // pos es la posicion, l numero de caracteres
+	 string aux;
+	 aux=nombre.substr(pos,l);
+	 return aux;
+ }
+
+bool palindromo ( string palabra ){
+	for( int i=0;i<palabra.length()/2; i++) {
+		if(palabra.at(i) != palabra.at(palabra.length()-1-i))
+			return false;
+		else
+			return true;
+	}
+	return true;
+}
