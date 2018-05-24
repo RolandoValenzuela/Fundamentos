@@ -1,0 +1,33 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargarvector( int v[],int n);
+void mostrarvector( int v[], int n);
+void separar( int v[], int n);
+
+void main(){
+int A[MAX], N;
+do{
+cout<<" ingrese un valor con varios digitos: ";
+cin>> N;
+}while((N<=0) || (N>MAX));
+cargarvector(A,N);
+mostrarvector(A,N);
+separar(A,N);
+getch();
+}
+
+void separar( int v[], int n){
+int r,c,i=0;
+while(n>0){
+r=n%10;
+n=n/10;
+v[i]=r;
+i++;
+}
+mostrarvector(v,n);
+}
