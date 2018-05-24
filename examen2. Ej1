@@ -1,0 +1,33 @@
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+float fact(int b);
+float suma( float x, int b);
+
+void main (){
+    float x,s;
+    int b;
+    cout<<"ingrese el numero y la base"<<endl;
+    cin>> x >>b;
+    s=suma(x,b);
+    cout<<" s "<<endl;
+}
+
+float fact(int b){
+float k=1;
+for(int i=2;i<=b; i++)
+k=k*i;
+return k;}
+
+float suma(float x,int b){
+float m=0;
+for(int i=1;i<=b; i++)
+m=m+(pow(x,i))/(fact(i));
+return m;
+}
